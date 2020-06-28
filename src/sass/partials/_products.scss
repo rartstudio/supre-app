@@ -1,0 +1,165 @@
+.products-container {
+    margin-top:3em;
+
+    .products-header {
+        margin: 0 auto;
+        text-align: center;
+
+        .header {
+            text-transform: uppercase;
+            position: relative;
+
+            &:before {
+                @include line-left;
+                width: 35%;
+            }
+            &:after {
+                @include line-right;
+                width: 35%;
+            }
+
+            @include mq-max-width (73em){
+                &:before {
+                    @include line-left;
+                    width: 25%;
+                }
+                &:after {
+                    @include line-right;
+                    width: 25%;
+                }
+            }
+
+            @include mq-max-width (40em){
+                &:before {
+                    @include line-left;
+                    width: 15%;
+                }
+                &:after {
+                    @include line-right;
+                    width: 15%;
+                }
+            }
+
+            @include mq-max-width (30em){
+                &:before {
+                    @include line-left(2em);
+                    width: 15%;
+                }
+                &:after {
+                    @include line-right(2em);
+                    width: 15%;
+                }
+            }
+        }
+    }
+
+    .products-nav {
+        display: flex;
+        justify-content: space-evenly;
+
+        .left{
+            margin-top:2em;
+            margin-left:.6em;
+            
+            .nav__links {
+                display: flex;
+                flex-wrap: wrap;
+
+                .nav__link {
+                    list-style: none;
+
+                    .link {
+                        font-size: 1rem;
+                        display: block;
+                        padding: 0.7em 1.5em;
+                        border: 1px solid rgba(0,0,0,.2);
+                        cursor: pointer;
+                        text-transform: uppercase;
+                        &:active,
+                        &:hover {
+                            color: orange;
+                        }
+                    }
+                }
+            }
+
+            .dropdown {
+                display: none;
+            }
+
+            @include mq-max-width (45em){
+                .dropdown{
+                    display: block;
+                    @include dropdown;
+                }
+                .nav__links{
+                    display:none;
+                }
+            }
+        }
+
+        .right {
+            margin-top: 2em;
+            margin-right: .6em;
+
+            .dropdown {
+                @include dropdown;
+            }
+        }
+    }
+
+    .products-item {
+        display: grid;
+        margin-top: 2em;
+        grid-template-columns: 1fr 2fr 2fr 2fr 1fr;
+        grid-template-rows:auto 1fr;
+
+        .items{
+            grid-column: 2/5;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+
+            .item {
+                list-style: none;
+                margin: 0 1em .8em;
+
+                .item__img {
+                    display: flex;
+                    flex-direction: column;
+                    align-items : center;
+                    cursor:pointer;
+
+                    img {
+                        width: 10em;
+                        height: 12em;
+                        border-radius:5px;
+
+                        @include mq-max-width(36em){
+                            width: 7.5em;
+                            height:9.5em;
+                        }
+                    }
+
+                    p:nth-of-type(1){
+                        margin-top:.3em;
+                    }
+                }
+            }
+
+            @include mq-max-width(36em){
+                grid-column: 1/6;
+            }
+        }
+
+        .btn-load-more {
+            grid-row:2/3;
+            grid-column:2/5;
+            margin: 0 auto;
+            @include btn(10rem,3rem,$color-white);
+            border : 1px solid $nav-color;
+        }
+
+
+    }
+}

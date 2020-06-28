@@ -1,0 +1,65 @@
+@mixin btn($width, $height, $color) {
+    background: $color;
+    border:none;
+    cursor: pointer;
+    outline:none;
+    width: $width;
+    height: $height;
+    text-transform: uppercase;
+}
+
+@mixin mq-min-width ($width: 55.6em){
+    @media (min-width: $width){
+        @content;
+    }
+}
+
+@mixin mq-max-width ($width: 50em){
+    @media (max-width: $width){
+        @content;
+    }
+}
+
+@mixin line-left($margin-left:4em) {
+    content: "";
+    display: block;
+    width: 33%;
+    height: 2px;
+    position: absolute;
+    background: rgba(0,0,0,.3);
+    left:0;
+    top: 50%;
+    margin-left: $margin-left;
+}
+
+@mixin line-right($margin-right:4em){
+    content: "";
+    display: block;
+    width: 33%;
+    height: 2px;
+    position: absolute;
+    background: rgba(0,0,0,.3);
+    right:0;
+    top: 50%;
+    margin-right: $margin-right;
+}
+
+@mixin dropdown {
+    padding: .52em 1.4em;
+    border: 1px solid rgba(0,0,0,.2);
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+@mixin icon__image($width: 1em, $height: 1em, $color: none){
+    background-color: $color;
+    width: $width;
+    height: $height;
+}
+
+@mixin font__ ($font: 'Nunito Sans', $family: Sans Serif, $font-size: 1rem,$text-transform: uppercase, $line-height: 1.3em){
+    font-size:$font-size;
+    text-transform:$text-transform;
+    line-height:$line-height;
+    font-family: $font, $family;
+}

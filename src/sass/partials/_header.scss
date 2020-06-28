@@ -1,0 +1,107 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background-color: $nav-color;
+
+    @include mq-max-width(56em){
+        flex-wrap:wrap;
+        height: 100%;
+    }
+}
+
+.logo {
+    padding: 0.8em;
+    
+    strong {
+        color: $color-logo;
+    }
+
+    @include mq-max-width(56em){
+        margin: 0 auto;
+        
+    }
+}
+
+.header-items{
+    display:flex;
+    align-items: center;
+    
+    @include mq-max-width(56em){
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+}
+.nav {
+    display: block;
+
+    .nav-links{
+        list-style: none;
+        display: flex;
+
+        .nav__link {
+            padding: 1em;
+        }
+    }
+
+    @include mq-max-width(56em){
+        margin: 0 auto;
+        margin-bottom: 1em;
+    }
+}
+
+.form {
+    display:flex;
+
+    label{
+        display: inline-block;
+        background: white;
+        width: 2em;
+
+        img {
+            padding : .7em 0 0 .7em;
+            @include icon__image;
+        }
+
+    }
+    .input-bar {
+        @include btn(13em, 2.2em, $color-white);
+    }
+
+    input[placeholder]{
+        @extend %placeholder__;
+    }
+
+    .btn {
+        @include btn(6em, auto, $btn-sign-in);
+        margin-left: 3px;
+    }
+
+    .btn-sign-in {
+        color: white;
+    }
+    @include mq-max-width(56em){
+        margin: 0 auto;
+        margin-bottom: 1em;
+    }
+}
+
+.icons {
+    display: flex;
+
+    a {
+        display: block;
+        margin : 0 0.7em;
+        cursor:pointer;
+
+        img {
+            @include icon__image;
+        }
+    }
+
+    @include mq-max-width(56em){
+        margin: 0 auto;
+        margin-bottom: 1em;
+    }
+}
